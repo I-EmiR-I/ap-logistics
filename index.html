@@ -373,9 +373,10 @@ class Component extends DCLogic {
     const video = this.pinVideoRef.current;
     if (!pin || !left || !right) return;
     if (video) {
+      video.load();
       ScrollTrigger.create({
         trigger: pin,
-        start: 'top bottom',
+        start: 'top bottom+=1200',
         end: 'bottom top',
         onEnter: () => video.play().catch(() => {}),
         onEnterBack: () => video.play().catch(() => {}),
